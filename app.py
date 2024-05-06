@@ -81,5 +81,5 @@ plt.ylabel('Price(in USD)')
 plt.legend()
 st.pyplot(fig2)
 
-buy= bigd.iat[0, 100]
+buy= bigd.at[0, 'recommendationKey']
 st.subheader(buy)
