@@ -22,7 +22,7 @@ bigd= bigd.transpose()
 bigdn= bigd[['longName', 'sector', 'previousClose', 'dayLow', 'dayHigh', 'dividendYield', 'forwardPE', 'fiftyTwoWeekHigh', 'fiftyTwoWeekLow' ,'priceToBook', 'mostRecentQuarter', 'totalCash', 'totalCashPerShare', 'returnOnAssets', 'returnOnEquity' ]]
 bigdn= bigdn.transpose()
 
-st.write(bigdn)
+st.write(bigd)
 
 
 st.subheader('Data From 2010-2024')
