@@ -20,7 +20,7 @@ dict= company.info
 bigd= pd.DataFrame.from_dict(dict, orient='index')
 bigd= bigd.transpose()
 #bigdn= bigd[['longName', 'sector', 'previousClose', 'dayLow', 'dayHigh', 'dividendYield', 'forwardPE', 'fiftyTwoWeekHigh', 'fiftyTwoWeekLow' ,'priceToBook', 'mostRecentQuarter', 'totalCash', 'totalCashPerShare', 'returnOnAssets', 'returnOnEquity' ]]
-#bigdn= bigdn.transpose()
+bigd= bigd.transpose()
 
 st.write(bigd)
 
