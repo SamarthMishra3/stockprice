@@ -5,9 +5,29 @@ import pandas_datareader as data
 import matplotlib.pyplot as plt
 from keras.models import load_model
 import yfinance as yf
-
+import base64
 start= "2010-01-01"
 end= "2024-04-30"
+
+
+def add_bg_from_local(image_file):
+  with open(image_file, "rb") as image_file:
+    encoded_string = base64.b64encode(image_file.read())
+  st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        background-image: url(data:image/{"png"};base64,{encoded_string.decode()} );
+        background-size: cover
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+  )
+
+
+add_bg_from_local('6256878.jpg')
+
 
 st.title("Stock Trend Prediction")
 
@@ -19,10 +39,9 @@ company= yf.Ticker(user_input)
 dict= company.info
 bigd= pd.DataFrame.from_dict(dict, orient='index')
 bigd= bigd.transpose()
-#bigdn= bigd[['longName', 'sector', 'previousClose', 'dayLow', 'dayHigh', 'dividendYield', 'forwardPE', 'fiftyTwoWeekHigh', 'fiftyTwoWeekLow' ,'priceToBook', 'mostRecentQuarter', 'totalCash', 'totalCashPerShare', 'returnOnAssets', 'returnOnEquity' ]]
-bigd= bigd.transpose()
+bigdn= bigd.transpose()
 
-st.write(bigd)
+st.write(bigdn)
 
 
 st.subheader('Data From 2010-2024')
